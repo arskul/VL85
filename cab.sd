@@ -6,12 +6,12 @@ shape ( cab.s
 	ESD_Bounding_Box ( -1.6 0.0 -11.250 1.6 5.197 11.250 )
 
 	ESD_Interior (
-		Switches ( 121
+		Switches ( 123
 			Switch (
 				ID ( 0 )
-				Name ( kontr )
+				Name ( mkontr )
 				Hint ( "Контроллер машиниста" )
-				StateHints ( 7
+				StateHints ( 63
 					"[БВ]"
 					"[0]"
 					"[СП]"
@@ -22,15 +22,15 @@ shape ( cab.s
 				)
 				Position ( 0.751 3.179 9.979 )
 				Radius ( 5 )
-				States ( 7 1 )
-				Flags ( CONTROLLERX PRECISE )
-				Fixed states ( 0 1 2 7 )
+				States ( 63 1 )
+				Flags ( PRECISE CONTROLLERX )
+				SwitchPrecision ( 0.05 0.0 )
 				AssignKey ( "D" "A" )
 				AnimTime ( 0.3 )
 			)
 			Switch (
 				ID ( 1 )
-				Name ( rev )
+				Name ( revers )
 				Hint ( "Реверс" )
 				StateHints ( 7
 					"[Назад]"
@@ -51,11 +51,13 @@ shape ( cab.s
 				ID ( 2 )
 				Name ( zspeed )
 				Hint ( "рукоятка скорости" )
-				Position ( 0.551 3.011 9.93 )
+				Position ( 0.543 3.097 9.926 )
 				Radius ( 5 )
-				States ( 2 0 )
-				Flags ( CONTROLLERY PRECISE )
+				States ( 120 0 )
+				Flags ( CONTROLLERX PRECISE )
+				SwitchPrecision ( 0.05 0.0 )
 				AssignKey ( "Q" "E" )
+				AnimTime ( 0.01 )
 			)
 			Switch (
 				ID ( 3 )
@@ -94,9 +96,9 @@ shape ( cab.s
 			)
 			Switch (
 				ID ( 5 )
-				Name ( pesok )
+				Name ( t_pes )
 				Hint ( "Песок" )
-				Position ( 1.218 2.977 9.958 )
+				Position ( 1.192 3.072 9.816 )
 				Radius ( 4 )
 				States ( 2 0 )
 				Flags ( NONFIXED )
@@ -107,7 +109,7 @@ shape ( cab.s
 				ID ( 6 )
 				Name ( svist )
 				Hint ( "Свисток" )
-				Position ( 1.218 2.977 9.958 )
+				Position ( 1.063 3.072 9.816 )
 				Radius ( 4 )
 				States ( 2 0 )
 				Flags ( NONFIXED )
@@ -116,9 +118,9 @@ shape ( cab.s
 			)
 			Switch (
 				ID ( 7 )
-				Name ( tifon )
+				Name ( t_tif1 )
 				Hint ( "Тифон" )
-				Position ( 1.218 2.977 9.958 )
+				Position ( 1.126 3.072 9.816 )
 				Radius ( 4 )
 				States ( 2 0 )
 				Flags ( NONFIXED )
@@ -129,7 +131,7 @@ shape ( cab.s
 				ID ( 8 )
 				Name ( rb )
 				Hint ( "РБ" )
-				Position ( 0.369 2.987 9.72 )
+				Position ( 0.363 3.073 9.718 )
 				Radius ( 4 )
 				States ( 2 0 )
 				Flags ( NONFIXED )
@@ -152,7 +154,7 @@ shape ( cab.s
 				Hint ( "ЭПК" )
 				Position ( 1.409 2.783 8.833 )
 				Radius ( 4 )
-				States ( 2 0 )
+				States ( 3 0 )
 				Flags ( )
 				AnimTime ( 0.3 )
 			)
@@ -330,7 +332,6 @@ shape ( cab.s
 				Radius ( 2 )
 				States ( 2 0 )
 				Flags ( )
-				AssignKey ( "Shift+L" )
 				AnimTime ( 0.3 )
 			)
 			Switch (
@@ -361,7 +362,7 @@ shape ( cab.s
 				Position ( 0.762 3.009 10.175 )
 				Radius ( 2 )
 				States ( 2 0 )
-				Flags ( NONFIXED )
+				Flags (  )
 				AnimTime ( 0.3 )
 			)
 			Switch (
@@ -708,7 +709,7 @@ shape ( cab.s
 				ID ( 65 )
 				Name ( t_svis2 )
 				Hint ( "Свисток ТЧМП" )
-				Position ( -1.27 3.1 10.16 )
+				Position ( -1.27 3.1 10.159 )
 				Radius ( 2 )
 				States ( 2 0 )
 				Flags (  )
@@ -718,7 +719,7 @@ shape ( cab.s
 				ID ( 66 )
 				Name ( t_tif2 )
 				Hint ( "тифон ТЧМП" )
-				Position ( -1.342 3.1 10.16 )
+				Position ( -1.342 3.1 10.159 )
 				Radius ( 2 )
 				States ( 2 0 )
 				Flags (  )
@@ -922,7 +923,7 @@ shape ( cab.s
 				Radius ( 2 )
 				States ( 3 1 )
 				Flags (  )
-				AnimTime ( 0.3 )
+				AnimTime ( 0.1 )
 			)
 			Switch (
 				ID ( 87 )
@@ -1262,6 +1263,28 @@ shape ( cab.s
 				Radius ( 2 )
 				States ( 2 0 )
 				Flags ( )
+				AnimTime ( 0.3 )
+			)
+			Switch (
+				ID ( 121 )
+				Name ( t_ottorm )
+				Hint ( "Песок" )
+				Position ( 0.997 3.072 9.816 )
+				Radius ( 4 )
+				States ( 2 0 )
+				Flags ( NONFIXED )
+				AssignKey ( "/" )
+				AnimTime ( 0.3 )
+			)
+			Switch (
+				ID ( 122 )
+				Name ( rbp )
+				Hint ( "Песок" )
+				Position ( -1.56 4.165 9.72 )
+				Radius ( 4 )
+				States ( 2 0 )
+				Flags ( NONFIXED )
+				AssignKey ( "z" )
 				AnimTime ( 0.3 )
 			)	
 		)
