@@ -26,3 +26,36 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
         return 1;
 }
 //---------------------------------------------------------------------------
+
+/*
+Stack variables
+Flags
+vsp compressor
+compressor
+mv1
+mv2
+mv3
+mv4
+
+*/
+
+extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine *eng,
+        unsigned int SwitchID,unsigned int PrevState)
+{
+        switch (SwitchID)
+        {
+                case /* constant-expression */:
+                        /* code */
+                        break;
+        
+                default:
+                        break;
+        }
+}
+
+extern "C" void __export Run
+ (ElectricEngine *eng,const ElectricLocomotive *loco,unsigned long State,
+        float time,float AirTemperature)
+{
+        
+}
