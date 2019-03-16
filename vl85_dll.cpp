@@ -37,6 +37,9 @@ Stack variables
  MV3
  MV4
 
+2 - throttle position
+3 - speed position
+99 - battery state (temporary)
 */
 
 extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine *eng,
