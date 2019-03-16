@@ -39,6 +39,8 @@ Stack variables
 
 2 - throttle position
 3 - speed position
+4 - EPK timer
+5 - EPK state
 99 - battery state (temporary)
 */
 
