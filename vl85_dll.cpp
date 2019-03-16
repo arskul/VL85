@@ -29,13 +29,13 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 
 /*
 Stack variables
-Flags
-vsp compressor
-compressor
-mv1
-mv2
-mv3
-mv4
+1 - unsigned long Flags
+ vsp compressor
+ compressor
+ MV1
+ MV2
+ MV3
+ MV4
 
 */
 
