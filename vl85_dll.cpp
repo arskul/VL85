@@ -30,13 +30,13 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 /*
 Stack variables
 0 - unsigned long Flags
-        1 - vsp compressor
-        2 - compressor
-        3 - MV1
-        4 - MV2
-        5 - MV3
-        6 - MV4
-        7 - battery state
+        1 - vsp compressor  1
+        2 - compressor 2
+        3 - MV1 4
+        4 - MV2 8
+        5 - MV3 16
+        6 - MV4 32
+        7 - battery state 64
 1 - throttle position
 2 - speed position
 3 - EPK timer
@@ -59,7 +59,7 @@ extern "C" bool __export Init
                         setSwitch (85, 0, true)
                         break;
                 case 1:
-                        setSwitch (85, 0, true)
+                        setSwitch (85, 1, true)
                         break;
                 case 2:
                         setSwitch (85, 1, true)
@@ -76,7 +76,8 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
         switch (SwitchID)
         {
                 case 85:
-                        Flags|=128;
+                // Battery ON
+                        Flags|=64;
                         break;
         
                 default:
@@ -88,9 +89,10 @@ extern "C" void __export Run
  (ElectricEngine *eng,const ElectricLocomotive *loco,unsigned long State,
         float time,float AirTemperature)
 {
-        if Flags&128
+
+        // battery voltmeter
+        if Flags&64
         cab->SetDisplayValue(11, eng->var[5]);
         else
         cab->SetDisplayValue(11, 0);
-        
 }
