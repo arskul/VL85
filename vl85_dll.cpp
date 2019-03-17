@@ -44,13 +44,34 @@ Stack variables
 6 - battery state (temporary)
 */
 
+extern "C" bool __export Init
+ (ElectricEngine *eng,ElectricLocomotive *loco,unsigned long State,
+        float time,float AirTemperature)
+{
+        switch (State&0xFF)
+        {
+                case 0:
+                        setwitch (85, 0, true)
+                        break;
+                case 1:
+                        setwitch (85, 0, true)
+                        break;
+                case 2:
+                        setwitch (85, 1, true)
+                        break;
+                default:
+                        setwitch (85, 1, true)
+                        break;
+        }
+}
+
 extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine *eng,
         unsigned int SwitchID,unsigned int PrevState)
 {
         switch (SwitchID)
         {
-                case /* constant-expression */:
-                        /* code */
+                case 85:
+                        
                         break;
         
                 default:
