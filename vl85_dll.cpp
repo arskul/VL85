@@ -59,7 +59,7 @@ extern "C" bool __export Init
                 case 2:
                         setwitch (85, 1, true)
                         break;
-                default:
+                case 3:
                         setwitch (85, 1, true)
                         break;
         }
