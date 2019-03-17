@@ -29,7 +29,7 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 
 /*
 Stack variables
-1 - unsigned long Flags
+0 - unsigned long Flags
         1 - vsp compressor
         2 - compressor
         3 - MV1
@@ -37,10 +37,11 @@ Stack variables
         5 - MV3
         6 - MV4
         7 - battery state
-2 - throttle position
-3 - speed position
-4 - EPK timer
-5 - EPK state
+1 - throttle position
+2 - speed position
+3 - EPK timer
+4 - EPK state
+5 - Battery Charge(V)
 
 */
 
@@ -48,7 +49,10 @@ extern "C" bool __export Init
  (ElectricEngine *eng,ElectricLocomotive *loco,unsigned long State,
         float time,float AirTemperature)
 {
-        
+        UINT *Flags=(UINT *)&eng->var[0];
+        Cabin *cab=eng->cab;
+
+        eng->var[5] = 50.0
         switch (State&0xFF)
         {
                 case 0:
@@ -84,5 +88,9 @@ extern "C" void __export Run
  (ElectricEngine *eng,const ElectricLocomotive *loco,unsigned long State,
         float time,float AirTemperature)
 {
+        if Flags&128
+        cab->SetDisplayValue(11, eng->var[5]);
+        else
+        cab->SetDisplayValue(11, eng->var[5]);
         
 }
