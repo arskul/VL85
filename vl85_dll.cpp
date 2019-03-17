@@ -91,7 +91,7 @@ extern "C" void __export Run
 {
 
         // battery voltmeter
-        if Flags&64
+        if (Flags&64)
         cab->SetDisplayValue(11, eng->var[5]);
         else
         cab->SetDisplayValue(11, 0);
