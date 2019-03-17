@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------
 
-#define RTS_STACKSIZE 15 // поправить по необхоодимости
+#define RTS_STACKSIZE 15 // поправить по необходимости
 //#define RTS_ADAPTER_COMPLY
 
 #include <windows.h>
