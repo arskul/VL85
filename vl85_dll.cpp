@@ -56,16 +56,16 @@ extern "C" bool __export Init
         switch (State&0xFF)
         {
                 case 0:
-                        setwitch (85, 0, true)
+                        setSwitch (85, 0, true)
                         break;
                 case 1:
-                        setwitch (85, 0, true)
+                        setSwitch (85, 0, true)
                         break;
                 case 2:
-                        setwitch (85, 1, true)
+                        setSwitch (85, 1, true)
                         break;
                 case 3:
-                        setwitch (85, 1, true)
+                        setSwitch (85, 1, true)
                         break;
         }
 }
@@ -91,6 +91,6 @@ extern "C" void __export Run
         if Flags&128
         cab->SetDisplayValue(11, eng->var[5]);
         else
-        cab->SetDisplayValue(11, eng->var[5]);
+        cab->SetDisplayValue(11, 0);
         
 }
