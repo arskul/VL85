@@ -48,7 +48,7 @@ extern "C" bool __export Init
  (ElectricEngine *eng,ElectricLocomotive *loco,unsigned long State,
         float time,float AirTemperature)
 {
-        eng->var[6]=0.0;
+        
         switch (State&0xFF)
         {
                 case 0:
