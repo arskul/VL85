@@ -41,7 +41,7 @@ Stack variables
 3 - speed position
 4 - EPK timer
 5 - EPK state
-99 - battery state (temporary)
+6 - battery state (temporary)
 */
 
 extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine *eng,
