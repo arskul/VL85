@@ -4,7 +4,7 @@
 //#define RTS_ADAPTER_COMPLY
 
 #include <windows.h>
-#include <math>
+//#include <math>
 #include "ts.h"
 
 #define BRAKE_STR_RATE 1.8
