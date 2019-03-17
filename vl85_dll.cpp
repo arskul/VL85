@@ -41,7 +41,7 @@ Stack variables
 2 - speed position
 3 - EPK timer
 4 - EPK state
-5 - Battery Charge(V)
+5 - Battery Charge (V)
 
 */
 
