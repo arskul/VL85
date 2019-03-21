@@ -54,20 +54,30 @@ extern "C" bool __export Init
         UINT *Flags=(UINT *)&eng->var[0];
         Cabin *cab=eng->cab;
 
-        eng->var[5] = 50.0
+        eng->var[5] = 50.0;
+
+        setSwitch (94, 0, true);
+        setSwitch (105, 1, true);
+        setSwitch (106, 1, true);
+        setSwitch (107, 1, true);
+        setSwitch (108, 1, true);
         switch (State&0xFF)
         {
+                //холодный
                 case 0:
-                        setSwitch (85, 0, true)
+                        setSwitch (85, 0, true);
                         break;
+                //включён(под составом)
                 case 1:
-                        setSwitch (85, 1, true)
+                        setSwitch (85, 1, true);
                         break;
+                //движется резервом
                 case 2:
-                        setSwitch (85, 1, true)
+                        setSwitch (85, 1, true);
                         break;
+                //движется с составом
                 case 3:
-                        setSwitch (85, 1, true)
+                        setSwitch (85, 1, true);
                         break;
         }
 }
@@ -100,10 +110,17 @@ extern "C" void __export Run
  (ElectricEngine *eng,const ElectricLocomotive *loco,unsigned long State,
         float time,float AirTemperature)
 {
-        //отключение вспомогательного компрессора (при неверном положении кранов)
+        //отключение вспомогательного компрессора (при неверном положении кранов)()
         if ((cab->Switch(105))&&(cab->Switch(106))&&(cab->Switch(107))&&(cab->Switch(108)))
-        {
                 Flags&=!1;
+        //отключение вспомогательного компрессора (по тумблеру)
+        if (cab->Switch(94))
+                Flags&=!1;
+
+        //каждую секунду +0,019
+        if (Flag&1)
+        {
+                eng->var[6]+=0.019*time;
         }
 
 
@@ -131,6 +148,4 @@ extern "C" void __export Run
         //манометр резервуара ТП
         cab->SetDisplayValue(14, eng->var[6]);
         
-      
-       
 }
