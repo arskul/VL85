@@ -82,9 +82,12 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
                         Flags|=64;
                         break;
                 case 94:
-                //каждые 3 секунды +0,05
                         if (Flags&64) {
-                                
+                                if (!(cab->Switch(105))||!(cab->Switch(106))||\
+                                !(cab->Switch(107))||!(cab->Switch(108)))
+                                {
+                                        Flags|=1;
+                                }
                         }
                         
         
@@ -97,13 +100,18 @@ extern "C" void __export Run
  (ElectricEngine *eng,const ElectricLocomotive *loco,unsigned long State,
         float time,float AirTemperature)
 {
+        //отключение вспомогательного компрессора (при неверном положении кранов)
+        if ((cab->Switch(105))&&(cab->Switch(106))&&(cab->Switch(107))&&(cab->Switch(108)))
+        {
+                Flags&=!1;
+        }
+
 
         // battery voltmeter
         if (Flags&64)
                 cab->SetDisplayValue(11, eng->var[5]);
         else
                 cab->SetDisplayValue(11, 0);
-
         //та ша
         //какой-то костыль от Теда (не понятно)
         if((State>>8)&1)
