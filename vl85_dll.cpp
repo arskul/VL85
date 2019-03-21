@@ -42,6 +42,8 @@ Stack variables
 3 - EPK timer
 4 - EPK state
 5 - Battery Charge (V)
+6 - 32L reservoir pressure
+7 - 150L reservoir pressure
 
 */
 
@@ -79,6 +81,12 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
                 // Battery ON
                         Flags|=64;
                         break;
+                case 94:
+                //каждые 3 секунды +0,05
+                        if (Flags&64) {
+                                
+                        }
+                        
         
                 default:
                         break;
