@@ -55,6 +55,9 @@ extern "C" bool __export Init
         Cabin *cab=eng->cab;
 
         eng->var[5] = 50.0;
+        eng->var[6] = 0.0;
+        eng->var[7] = 0.0;
+        loco->MainResPressure = 0.0;
 
         setSwitch (94, 0, true);
         setSwitch (105, 1, true);
