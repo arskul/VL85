@@ -100,7 +100,29 @@ extern "C" void __export Run
 
         // battery voltmeter
         if (Flags&64)
-        cab->SetDisplayValue(11, eng->var[5]);
+                cab->SetDisplayValue(11, eng->var[5]);
         else
-        cab->SetDisplayValue(11, 0);
+                cab->SetDisplayValue(11, 0);
+
+        //та ша
+        //какой-то костыль от Теда (не понятно)
+        if((State>>8)&1)
+                float val;
+        //манометр ТЦ
+        if(loco->BrakeCylinderPressure>loco->IndependentBrakePressure)
+                val=loco->BrakeCylinderPressure;
+        else
+                val=loco->IndependentBrakePressure;
+        cab->SetDisplayValue(6,val);
+        //манометр ГР
+        cab->SetDisplayValue(7, loco->MainResPressure);
+        cab->SetDisplayValue(8, loco->TrainPipePressure);
+        cab->SetDisplayValue(9, eng->UR);
+        //манометр резервуара ЦУ
+        cab->SetDisplayValue(13, eng->var[7]);
+        //манометр резервуара ТП
+        cab->SetDisplayValue(14, eng->var[6]);
+        
+      
+       
 }
