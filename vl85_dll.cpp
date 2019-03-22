@@ -90,6 +90,7 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
 {
         switch (SwitchID)
         {
+
                 case 85:
                 // Battery ON
                         Flags|=64;
@@ -126,6 +127,12 @@ extern "C" void __export Run
                 eng->var[6]+=0.019*time;
         }
 
+        //отключение вспом. компрессора "помощником"
+        if (eng->var[6]>6.0)
+        {
+             Flags&=!1;
+             SetSwitch(94,0, true);  
+        }
 
         // battery voltmeter
         if (Flags&64)
