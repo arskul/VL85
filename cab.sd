@@ -242,7 +242,7 @@ shape ( cab.s
 			Switch (
 				ID ( 19 )
 				Name ( t_sign )
-				Hint ( "Цепи управления" )
+				Hint ( "Сигнализация" )
 				Position ( 0.979 2.994 10.047 )
 				Radius ( 4 )
 				States ( 2 0 )
