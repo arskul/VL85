@@ -30,6 +30,7 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 /*
 Stack variables
 0 - unsigned long Flags
+    1 bite
         1 - vsp compressor  1
         2 - compressor 2
         3 - MV1 4
@@ -37,6 +38,10 @@ Stack variables
         5 - MV3 16
         6 - MV4 32
         7 - battery state 64
+        8 - GV on 128
+    2 bite
+        1 - GV on 256
+        2 - BV on 512
 1 - throttle position
 2 - speed position
 3 - EPK timer
@@ -90,6 +95,34 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
 {
         switch (SwitchID)
         {
+               //signalisation 
+                case 19:
+                        if (Flags&64 && Switch(112)) {
+                                if (!(Flags&256)) {
+                                        //ГВ и ЗБ
+                                        cab->SetDisplayState(21, 1);
+                                        cab->SetDisplayState(38, 1);
+                        
+                                }
+                                if (!(Flags&2 || Flags&4 || Flags&8 || Flags&16 || Flags&32)) {
+                                        //ФР
+                                        cab->SetDisplayState(20, 1);
+                                }
+                                if (!(Flags&512) {
+                                        //ТД
+                                        cab->SetDisplayState(25, 1);
+                                        cab->SetDisplayState(26, 1);
+                                        cab->SetDisplayState(27, 1);
+                                }
+                                if (DisplayValue(6)>0.1) {
+                                        //ТЦ
+                                        cab->SetDisplayState(37, 1);
+                                }
+                                
+                                
+                                
+                        }
+                        
 
                 case 85:
                 // Battery ON
@@ -140,7 +173,7 @@ extern "C" void __export Run
         else
                 cab->SetDisplayValue(11, 0);
         //та ша
-        //какой-то костыль от Теда (не понятно)
+        //какой-то костыль от Теда (непонятно)
         if((State>>8)&1)
                 float val;
         //манометр ТЦ
