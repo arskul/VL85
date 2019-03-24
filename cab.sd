@@ -1567,7 +1567,7 @@ shape ( cab.s
 			Display (
 				ID ( 21 )
 				Name ( mv007 )
-				Hint ( "ТВ" )
+				Hint ( "ГВ" )
 				DisplayType ( LAMP )
 				Position ( 0.671 3.284 10.335 )
 				Radius ( 3 )
