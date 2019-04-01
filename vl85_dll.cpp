@@ -3,7 +3,7 @@
 #define RTS_STACKSIZE 15 // поправить по необходимости
 //#define RTS_ADAPTER_COMPLY
 
-#include <windows.h>
+//#include <windows.h>
 //#include <math>
 #include "ts.h"
 
@@ -95,7 +95,7 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
 {
         switch (SwitchID)
         {
-               //signalisation 
+               /*//signalisation 
                 case 19:
                         if (Flags&64 && Switch(112)) {
                                 if (!(Flags&256)) {
@@ -122,7 +122,7 @@ extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine 
                                 
                                 
                         }
-                        
+                        */
 
                 case 85:
                 // Battery ON
