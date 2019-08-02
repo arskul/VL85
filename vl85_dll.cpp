@@ -3,8 +3,8 @@
 #define RTS_STACKSIZE 15 // поправить по необходимости
 //#define RTS_ADAPTER_COMPLY
 
-//#include <windows.h>
-//#include <math>
+#include <windows.h>
+#include <math>
 #include "ts.h"
 
 #define BRAKE_STR_RATE 1.8
@@ -89,6 +89,20 @@ extern "C" bool __export Init
                         break;
         }
 }
+
+extern "C" void __export  ChangeLoco
+(Locomotive *loco,const Locomotive *Prev,unsigned long State)
+{
+
+}
+
+extern "C" bool __export CanWorkWith(const Locomotive *loco,const wchar_t *Type){
+
+ if(!lstrcmpiW(Type,L"vl85"))
+  return true;
+
+ return false;
+};
 
 extern "C" void __export Switched(const ElectricLocomotive *loco,ElectricEngine *eng,
         unsigned int SwitchID,unsigned int PrevState)
