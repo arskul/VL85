@@ -93,7 +93,8 @@ extern "C" bool __export Init
 extern "C" void __export  ChangeLoco
 (Locomotive *loco,const Locomotive *Prev,unsigned long State)
 {
-
+ //Временная заглушка
+ loco->LocoFlags|=1;
 }
 
 extern "C" bool __export CanWorkWith(const Locomotive *loco,const wchar_t *Type){
